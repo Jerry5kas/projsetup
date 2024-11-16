@@ -15,7 +15,7 @@ Route::post('/registerUser', [UserController::class, 'registerUser'])->name('reg
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 Route::get('/blog-create', [BlogController::class, 'index'])->name('blog.create')->middleware('auth');
-Route::post('/blog', [BlogController::class, 'blogCreate'])->name('blog')->middleware('auth');
-Route::get('/blog-show', [BlogController::class, 'blogShow'])->name('blog.show')->middleware('auth');
+Route::post('/blog-post', [BlogController::class, 'blogCreate'])->name('blog')->middleware('auth');
+Route::get('/blog', [BlogController::class, 'blogShow'])->name('blog.show')->middleware('auth');
 
 

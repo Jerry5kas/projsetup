@@ -28,7 +28,12 @@ class BlogController extends Controller
 
     public function blogShow()
     {
-        $posts = Post::all();
+
+
+        $posts = [];
+        if (auth()->check()) {
+            $posts = auth()->user()->userPosts()->latest()->get();
+        }
         return view('page.blog-show')->with('posts', $posts);
     }
 

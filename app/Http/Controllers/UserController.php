@@ -33,7 +33,7 @@ class UserController extends Controller
         $fields['password'] = bcrypt($fields['password']);
         $user = User::create($fields);
         auth()->guard()->login($user);
-        return redirect('/');
+        return redirect('/dashboard');
     }
 
     public function loginUser(Request $request)
