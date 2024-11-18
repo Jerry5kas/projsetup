@@ -21,4 +21,5 @@ Route::get('/blog', [BlogController::class, 'blogShow'])->name('blog.show')->mid
 
 Route::get('blog-edit/{post}', [BlogController::class, 'showEditBlog'])->name('blog.edit');
 Route::put('blog-edit/{post}', [BlogController::class, 'updateEditBlog'])->name('blog.edit');
+Route::delete('blog-delete/{post}', [BlogController::class, 'deleteBlog'])->name('blog.delete');
 

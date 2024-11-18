@@ -14,14 +14,37 @@ class BlogController extends Controller
 
     public function showEditBlog(Post $post)
     {
+        if (auth()->user()->id !== $post['user_id'])
+        {
+            return redirect('/blog');
+        }
         return view('page.blog-edit', ['post' => $post]);
     }
 
-    public function updateEditBlog()
+    public function updateEditBlog(Post $post, Request $request)
     {
-        if (auth()->user()->id !== $post['user_id']) {
-
+        if (auth()->user()->id !== $post['user_id'])
+        {
+            return redirect('/blog');
         }
+        $fields = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'body' => ['required', 'string'],
+        ]);
+        $fields['title'] = strip_tags($fields['title']);
+        $fields['body'] = strip_tags($fields['body']);
+
+        $post->update($fields);
+        return redirect('/blog');
+    }
+
+    public function deleteBlog(Post $post)
+    {
+        if (auth()->user()->id === $post['user_id'])
+        {
+            $post->delete();
+        }
+            return redirect('/blog');
     }
 
     public function blogCreate(Request $request)

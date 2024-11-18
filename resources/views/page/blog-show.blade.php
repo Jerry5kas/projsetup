@@ -8,6 +8,7 @@
             @foreach ($posts as $post)
                 <div class="p-5 space-y-3 tracking-wider bg-white border rounded shadow-md ">
                     <div class="text-2xl capitalize font-merri">{{ $post->title }}</div>
+                    <div class="text-xs font-merri text-pink-600"><span class="text-gray-600">author:</span> <span class=" capitalize">{{ $post->user->name }}</span></div>
                     <div class="text-sm font-lex">{{ $post->body }}</div>
                     <div class="flex items-center justify-between">
                         <div class="text-xs text-gray-500 font-lex">{{ $post->created_at->diffForHumans() }} ...</div>
