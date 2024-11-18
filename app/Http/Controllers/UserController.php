@@ -33,21 +33,22 @@ class UserController extends Controller
         $fields['password'] = bcrypt($fields['password']);
         $user = User::create($fields);
         auth()->guard()->login($user);
-        return redirect('/dashboard');
+        return redirect('/dashboard')->with('message', 'Successfully logged In.');
     }
 
-    public function loginUser(Request $request)
-    {
-        $fields = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required', 'min:8'],
-        ]);
+public function loginUser(Request $request)
+{
+    $fields = $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required', 'min:8'],
+    ]);
 
-        if (auth()->attempt($fields)) {
-            return redirect()->route('dashboard')->with('message', 'Successfully logged In.');
-        }
-        return back();
+    if (auth()->attempt($fields)) {
+        return redirect()->route('dashboard')->with('message', 'Successfully logged In.');
     }
+
+    return back();
+}
 
     public function logout()
     {

@@ -12,6 +12,18 @@ class BlogController extends Controller
         return view('page.blog');
     }
 
+    public function showEditBlog(Post $post)
+    {
+        return view('page.blog-edit', ['post' => $post]);
+    }
+
+    public function updateEditBlog()
+    {
+        if (auth()->user()->id !== $post['user_id']) {
+
+        }
+    }
+
     public function blogCreate(Request $request)
     {
         $fields = $request->validate([

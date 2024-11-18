@@ -19,3 +19,6 @@ Route::post('/blog-post', [BlogController::class, 'blogCreate'])->name('blog')->
 Route::get('/blog', [BlogController::class, 'blogShow'])->name('blog.show')->middleware('auth');
 
 
+Route::get('blog-edit/{post}', [BlogController::class, 'showEditBlog'])->name('blog.edit');
+Route::put('blog-edit/{post}', [BlogController::class, 'updateEditBlog'])->name('blog.edit');
+
