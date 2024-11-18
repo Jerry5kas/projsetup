@@ -1,6 +1,6 @@
 <div class="flex items-center justify-center h-screen bg-black/70">
     <div class="bg-white rounded-md w-3xl">
-        <form action="/contact-create" method="POST">
+        <form action="/contact-upsert" method="POST">
             @csrf
             <input type="text" name="name" placeholder="Contact Name" class="px-1 py-3 text-xs border rounded-md">
             <input type="text" name="email" placeholder="Email" class="px-1 py-3 text-xs border rounded-md">

@@ -25,4 +25,6 @@ Route::put('blog-edit/{post}', [BlogController::class, 'updateEditBlog'])->name(
 Route::delete('blog-delete/{post}', [BlogController::class, 'deleteBlog'])->name('blog.delete')->middleware('auth');
 
 // Contact
-Route::get('contact', [ContactController::class, 'index'])->name('contact.index')->middleware('auth');
+// Route::get('/contact', [ContactController::class, 'index'])->name('contact.index')->middleware('auth');
+Route::get('/contact-upsert', [ContactController::class, 'upsert'])->name('contact.upsert')->middleware('auth');
+

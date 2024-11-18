@@ -63,8 +63,6 @@ class BlogController extends Controller
 
     public function blogShow()
     {
-
-
         $posts = [];
         if (auth()->check()) {
             $posts = auth()->user()->userPosts()->latest()->get();
