@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -25,6 +26,17 @@ Route::put('blog-edit/{post}', [BlogController::class, 'updateEditBlog'])->name(
 Route::delete('blog-delete/{post}', [BlogController::class, 'deleteBlog'])->name('blog.delete')->middleware('auth');
 
 // Contact
-// Route::get('/contact', [ContactController::class, 'index'])->name('contact.index')->middleware('auth');
+ Route::get('/contacts', [ContactController::class, 'index'])->name('contact.index')->middleware('auth');
 Route::get('/contact-upsert', [ContactController::class, 'upsert'])->name('contact.upsert')->middleware('auth');
+Route::post('/contact-store', [ContactController::class, 'store'])->name('contact.store')->middleware('auth');
+Route::get('/contact-edit/{contact}', [ContactController::class, 'showEditContact'])->name('contact.edit')->middleware('auth');
+Route::put('/contact-edit/{contact}', [ContactController::class, 'updateEditContact'])->name('contact.edit')->middleware('auth');
+Route::delete('/contact-delete/{contact}', [ContactController::class, 'deleteContact'])->name('contact.delete')->middleware('auth');
 
+// Category
+Route::get('categories', [CategoryController::class, 'index'])->name('category.index')->middleware('auth');
+Route::get('/category-create', [CategoryController::class, 'create'])->name('category.create')->middleware('auth');
+Route::post('/category-store', [CategoryController::class, 'store'])->name('category.store')->middleware('auth');
+Route::get('/category-edit/{category}', [CategoryController::class, 'edit'])->name('category.edit')->middleware('auth');
+Route::put('/category-edit/{category}', [CategoryController::class, 'update'])->name('category.edit')->middleware('auth');
+Route::get('/category-delete/{category}', [CategoryController::class, 'delete'])->name('category.delete')->middleware('auth');

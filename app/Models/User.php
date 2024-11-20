@@ -53,7 +53,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class, 'user_id');
     }
 
-    public function contact() {
+    public function contacts() {
         return $this->hasMany(Contact::class ,'user_id');
     }
 }
