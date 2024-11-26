@@ -2,7 +2,7 @@
     <div class="flex items-center justify-center h-screen bg-black/70 flex-col space-y-5 font-lex text-xs">
         <div class="text-2xl font-merri text-white">Edit Categories</div>
         <div class="w-3/12 bg-white p-5 rounded-sm">
-            <form action="{{ route('category.edit', $category->id) }}" method="POST" class="flex flex-col gap-y-5">
+            <form action="{{ route('category.edit', $category->id) }}" method="POST" enctype="multipart/form-data" class="flex flex-col gap-y-5">
                 @csrf
                 @method('PUT')
                 <input type="text" name="name" placeholder="Category name"
@@ -15,6 +15,10 @@
                 @error('description')
                 <span class="text-red-600">{{$message}}</span>
                 @enderror
+                <div class="flex flex-col gap-2">
+                    <label class="text-gray-500">Upload File/Image</label>
+                    <input type="file" name="image"  class="border p-1 max-w-max rounded text-xs font-lex  bg-slate-100" placeholder="">
+                </div>
                 <div class="flex items-center gap-x-5 text-gray-500">
                     <label for="">Is Active</label>
                     <input type="checkbox" name="is_active" {{ $category->is_active == true ? 'checked' : ''}} >
