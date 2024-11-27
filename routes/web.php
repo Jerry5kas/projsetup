@@ -46,3 +46,6 @@ Route::get('/category-delete/{category}', [CategoryController::class, 'delete'])
 Route::get('products', [ProductController::class, 'index'])->name('product.index')->middleware('auth');
 Route::get('/product-create', [ProductController::class, 'create'])->name('product.create')->middleware('auth');
 Route::post('/product-store', [ProductController::class, 'store'])->name('product.store')->middleware('auth');
+Route::get('/product-edit/{product}', [ProductController::class, 'edit'])->name('product.edit')->middleware('auth');
+Route::put('/product-edit/{product}', [ProductController::class, 'update'])->name('product.edit')->middleware('auth');
+Route::get('/product-delete/{product}', [ProductController::class, 'delete'])->name('product.delete')->middleware('auth');

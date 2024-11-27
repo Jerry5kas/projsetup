@@ -61,7 +61,7 @@ class CategoryController extends Controller
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $fileName = time() . '.' . $extension;
-            $path = 'uploads/category/';
+            $path='uploads/category/';
             $file->move($path , $fileName);
 
             if (File::exists($category->image)) {
@@ -71,7 +71,7 @@ class CategoryController extends Controller
         $category->update([
             'name' => $request->name,
             'description' => $request->description,
-            'image' => $path.$fileName,
+            'image' => $path.$fileName ,
             'is_active' => $request->is_active == true ? 1 : 0,
         ]);
         return redirect()->route('category.index')->with('message', 'Category updated successfully.');
