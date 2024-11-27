@@ -18,6 +18,10 @@ Route::post('/registerUser', [UserController::class, 'registerUser'])->name('reg
 
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
+Route::get('test', [\App\Http\Controllers\TestController::class, 'index'])->name('test')->middleware('auth');
+Route::get('/test-create', [\App\Http\Controllers\TestController::class, 'create'])->name('test.create')->middleware('auth');
+Route::post('/test-store', [\App\Http\Controllers\TestController::class, 'store'])->name('test.store')->middleware('auth');
+
 // Blog
 Route::get('/blog-create', [BlogController::class, 'index'])->name('blog.create')->middleware('auth');
 Route::post('/blog-post', [BlogController::class, 'blogCreate'])->name('blog')->middleware('auth');
