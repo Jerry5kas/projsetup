@@ -9,7 +9,8 @@ class TestController extends Controller
 {
     public function index()
     {
-        $tests = Test::get();
+
+        $tests = Test::where('is_active', '=', '1')->get();
         return view('test.index')->with('tests', $tests);
     }
 
@@ -37,7 +38,6 @@ class TestController extends Controller
         $test->count = $request->count;
         $test->is_active = $request->is_active == true ? 1 : 0;
         $test->save();
-
 
 //        Test::create([
 //            'name' => $request->name,
