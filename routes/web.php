@@ -64,3 +64,6 @@ Route::get('/product-delete/{product}', [ProductController::class, 'delete'])->n
 Route::get('labels', [CommonController::class, 'label'])->name('label.index')->middleware('auth');
 Route::get('/label-create', [CommonController::class, 'create'])->name('label.create')->middleware('auth');
 Route::post('/label-store', [CommonController::class, 'store'])->name('label.store')->middleware('auth');
+Route::get('/label-edit/{label}',[CommonController::class, 'edit'])->name('label.edit')->middleware('auth');
+Route::put('/label-edit/{label}',[CommonController::class, 'update'])->name('label.edit')->middleware('auth');
+Route::get('/label-delete/{label}',[CommonController::class, 'delete'])->name('label.delete')->middleware('auth');

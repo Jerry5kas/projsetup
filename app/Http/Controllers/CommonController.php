@@ -9,7 +9,8 @@ class CommonController extends Controller
 {
     public function label()
     {
-        return view('label.index');
+        $labels = Label::where('is_active', 1)->get();
+        return view('label.index')->with('labels', $labels);
     }
 
     public function create()
@@ -51,8 +52,10 @@ class CommonController extends Controller
         return redirect()->route('label.index')->with('message', 'Label updated successfully');
     }
 
-//    public function delete()
-//    {
-//
-//    }
+    public function delete(int $id)
+    {
+        $labels = Label::findOrFail($id);
+        $labels->delete();
+        return redirect()->route('label.index')->with('message', 'Label deleted successfully');
+    }
 }
