@@ -2,34 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Test;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
     public function index()
     {
+        $tests = Test::where(function ($query) {
+            $query->where([
+                ['is_active', '1'],
+            ]);
+        })->orderBy('name', 'asc')->get();
 
-        $tests = Test::where('is_active', '=', '1')->get();
-        return view('test.index')->with('tests', $tests);
+        $contacts = DB::table('contacts')
+            ->orderBy('city', 'desc')
+            ->get();
+
+        return view('test.index')->with([
+            'tests' => $tests,
+            'contacts' => $contacts
+        ]);
     }
 
-    public function create() {
+    public function create()
+    {
         return view('test.create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-           'name' => 'required',
-           'description' => 'nullable',
+            'name' => 'required',
+            'description' => 'nullable',
             'value' => 'required|numeric',
             'count' => 'required|numeric',
             'is_active' => 'sometimes'
         ],
-        [
-            'name' => 'The Test Name cannot be empty',
-        ]);
+            [
+                'name' => 'The Test Name cannot be empty',
+            ]);
 
         $test = new Test();
         $test->name = $request->name;
@@ -39,13 +53,6 @@ class TestController extends Controller
         $test->is_active = $request->is_active == true ? 1 : 0;
         $test->save();
 
-//        Test::create([
-//            'name' => $request->name,
-//            'description' => $request->description,
-//            'value' => $request->value,
-//            'count' => $request->count,
-//            'is_active' => $request->is_active == true ? 1 : 0,
-//        ]);
         return redirect()->route('test')->with('message', 'Test Date Created Successfully');
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommonController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -22,9 +23,9 @@ Route::post('/registerUser', [UserController::class, 'registerUser'])->name('reg
 
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
-Route::get('test', [\App\Http\Controllers\TestController::class, 'index'])->name('test')->middleware('auth');
-Route::get('/test-create', [\App\Http\Controllers\TestController::class, 'create'])->name('test.create')->middleware('auth');
-Route::post('/test-store', [\App\Http\Controllers\TestController::class, 'store'])->name('test.store')->middleware('auth');
+Route::get('test', [TestController::class, 'index'])->name('test')->middleware('auth');
+Route::get('/test-create', [TestController::class, 'create'])->name('test.create')->middleware('auth');
+Route::post('/test-store', [TestController::class, 'store'])->name('test.store')->middleware('auth');
 
 // Blog
 Route::get('/blog-create', [BlogController::class, 'index'])->name('blog.create')->middleware('auth');
@@ -59,3 +60,7 @@ Route::put('/product-edit/{product}', [ProductController::class, 'update'])->nam
 Route::get('/product-delete/{product}', [ProductController::class, 'delete'])->name('product.delete')->middleware('auth');
 
 
+//Label
+Route::get('labels', [CommonController::class, 'label'])->name('label.index')->middleware('auth');
+Route::get('/label-create', [CommonController::class, 'create'])->name('label.create')->middleware('auth');
+Route::post('/label-store', [CommonController::class, 'store'])->name('label.store')->middleware('auth');
