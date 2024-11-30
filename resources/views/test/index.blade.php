@@ -17,11 +17,10 @@
             @endforeach
         </div>
 
-        <div>
-
+         <div>
             <div class="w-8/12 mx-auto">Contacts</div>
             @foreach ($contacts as $index => $contact)
-                <div class="w-8/12 text-xs flex gap-x-5 p-5 border border-collapse text-blue-800 font-lex mx-auto">
+                <div class="w-8/12 text-xs flex gap-x-5 p-5 border border-collapse text-blue-800 font-lex mx-auto ">
                     <div class="w-1/6 text-red-600">{{ $index + 1 }}</div>
                     <div class="w-1/6">{{ $contact->name }}</div>
                     <div class="w-1/6">{{ $contact->email }}</div>

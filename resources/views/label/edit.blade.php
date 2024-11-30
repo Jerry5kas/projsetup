@@ -4,7 +4,7 @@
               class="w-3/12 mx-auto p-5 flex flex-col gap-y-5 bg-white rounded-md">
             @csrf
             @method('PUT')
-            <input type="text" name="name" placeholder="Label Name" value="{{$label->name }}"
+            <input type="text" name="name" placeholder="Label Name" value="{{ $label->name }}"
                    class="border p-2 rounded text-xs">
             @error('name')
             <span class="text-red-600 text-xs">{{ $message }}</span>
