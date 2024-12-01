@@ -33,8 +33,8 @@ class CommonController extends Controller
     }
 
     public function edit(int $id) {
-        $labels = Label::findOrFail($id);
-        return view('label.edit')->with('label', $labels);
+        $label = Label::findOrFail($id);
+        return view('label.edit')->with('label', $label);
     }
 
     public function update(Request $request,int $id) {
@@ -43,8 +43,8 @@ class CommonController extends Controller
         'description' => 'required',
             'is_active' => 'sometimes',
         ]);
-        $labels = Label::findOrFail($id);
-        $labels->update([
+        $label = Label::findOrFail($id);
+        $label->update([
             'name' => $request->name,
             'description' => $request->description,
             'is_active' => $request->is_active == true ? 1 : 0,
