@@ -28,12 +28,10 @@ Route::get('/test-create', [TestController::class, 'create'])->name('test.create
 Route::post('/test-store', [TestController::class, 'store'])->name('test.store')->middleware('auth');
 
 // Blog
-Route::get('/blog-create', [BlogController::class, 'index'])->name('blog.create')->middleware('auth');
-Route::post('/blog-post', [BlogController::class, 'blogCreate'])->name('blog')->middleware('auth');
-Route::get('/blog', [BlogController::class, 'blogShow'])->name('blog.show')->middleware('auth');
-Route::get('blog-edit/{post}', [BlogController::class, 'showEditBlog'])->name('blog.edit')->middleware('auth');
-Route::put('blog-edit/{post}', [BlogController::class, 'updateEditBlog'])->name('blog.edit')->middleware('auth');
-Route::delete('blog-delete/{post}', [BlogController::class, 'deleteBlog'])->name('blog.delete')->middleware('auth');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index')->middleware('auth');
+Route::get('/blog-create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
+
+
 
 // Contact
  Route::get('/contacts', [ContactController::class, 'index'])->name('contact.index')->middleware('auth');
