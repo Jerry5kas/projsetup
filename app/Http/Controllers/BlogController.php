@@ -17,7 +17,15 @@ class BlogController extends Controller
         return view('blog.create');
     }
 
-    public function store() {
+    public function store(Request $request) {
+        $request->validate([
+           'category_id' => 'required',
+           'name' => 'required',
+           'description' => 'required',
+           'image' => 'required',
+            'is_active' => 'sometimes',
+        ]);
+
         return 'Blog create Successfully';
     }
 }
