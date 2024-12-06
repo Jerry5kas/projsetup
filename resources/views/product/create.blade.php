@@ -35,7 +35,7 @@
                 <label for="">Status</label>
                 <input type="checkbox" name="is_active" {{ old('is_active') ? 'checked' : '' }}>
             </div>
-            <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md">Save</button>
+            <button type="submit" class="w-full py-2 bg-blue-600 text-white rounded-md">Save</button>
         </form>
     </div>
 </x-layouts.guest>

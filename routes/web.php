@@ -30,6 +30,7 @@ Route::post('/test-store', [TestController::class, 'store'])->name('test.store')
 // Blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index')->middleware('auth');
 Route::get('/blog-create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
+Route::post('/blog-store', [BlogController::class, 'store'])->name('blog.store')->middleware('auth');
 
 
 
@@ -65,3 +66,4 @@ Route::post('/label-store', [CommonController::class, 'store'])->name('label.sto
 Route::get('/label-edit/{label}',[CommonController::class, 'edit'])->name('label.edit')->middleware('auth');
 Route::put('/label-update/{label}',[CommonController::class, 'update'])->name('label.update')->middleware('auth');
 Route::get('/label-delete/{label}',[CommonController::class, 'delete'])->name('label.delete')->middleware('auth');
+

@@ -16,5 +16,9 @@ class BlogController extends Controller
     {
         return view('blog.create');
     }
+
+    public function store() {
+        return 'Blog create Successfully';
+    }
 }
 
