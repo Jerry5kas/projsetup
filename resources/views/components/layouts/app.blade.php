@@ -11,12 +11,16 @@
 
 </head>
 <body>
-<x-nav.appnav :list="$header" />
-<div class="bg-slate-50 min-h-screen">
-    {{$slot}}
-</div>
+<x-nav.appnav :list="$header"/>
+<x-nav.sidebar>
+    <div class="bg-slate-50 min-h-screen">
+
+
+        {{$slot}}
+    </div>
+</x-nav.sidebar>
 @if(session('message'))
-    <x-alert.success />
+    <x-alert.success/>
 @endif
 </body>
 </html>

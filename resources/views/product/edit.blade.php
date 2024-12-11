@@ -35,7 +35,7 @@
                 @if ($product->image)
                     <img src="{{ asset($product->image) }}" alt="Current Image" class="mb-2 w-10 h-auto rounded-md">
                 @endif
-                <input type="file" name="image">
+                <input type="file" name="image" value="{{$product->image}}">
             </div>
             <div class="flex gap-x-3 text-xs text-gray-700">
                 <label for="">Status</label>

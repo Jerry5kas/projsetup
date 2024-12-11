@@ -35,4 +35,24 @@
             @endforeach
         </div>
     </div>
+
+    <div x-data="{ open: false }" class="p-24">
+        <!-- Card 1 -->
+        <div x-show="!open" class="w-40 h-40 rounded-md bg-blue-600 text-white">
+            <button @click="open = true" class="bg-yellow-400">btn 1</button>
+            <div>Card 1.</div>
+            <div>At.</div>
+            <div>Rerum?</div>
+            <div>Consequuntur.</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div x-show="open" class="w-40 h-40 rounded-md bg-blue-600 text-white">
+            <button @click="open = false" class="bg-red-400">btn 2</button>
+            <div>Card 2.</div>
+            <div>At.</div>
+            <div>Rerum?</div>
+            <div>Consequuntur.</div>
+        </div>
+    </div>
 </x-layouts.app>

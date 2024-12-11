@@ -103,9 +103,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        if (File::exists($product->image)) {
-            File::delete($product->image);
-        }
+
         $product->delete();
         return redirect()->route('product.index')->with('message', 'Product deleted successfully.');
     }

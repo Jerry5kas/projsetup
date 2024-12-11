@@ -11,9 +11,6 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
-
-
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/login', [UserController::class, 'login'])->name('login');
@@ -31,11 +28,12 @@ Route::post('/test-store', [TestController::class, 'store'])->name('test.store')
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index')->middleware('auth');
 Route::get('/blog-create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
 Route::post('/blog-store', [BlogController::class, 'store'])->name('blog.store')->middleware('auth');
-
-
+Route::get('/blog-edit/{id}', [BlogController::class, 'edit'])->name('blog.edit')->middleware('auth');
+Route::put('/blog-update/{id}', [BlogController::class, 'update'])->name('blog.update')->middleware('auth');
+Route::get('/blog-delete/{id}', [BlogController::class, 'destroy'])->name('blog.delete')->middleware('auth');
 
 // Contact
- Route::get('/contacts', [ContactController::class, 'index'])->name('contact.index')->middleware('auth');
+Route::get('/contacts', [ContactController::class, 'index'])->name('contact.index')->middleware('auth');
 Route::get('/contact-upsert', [ContactController::class, 'upsert'])->name('contact.upsert')->middleware('auth');
 Route::post('/contact-store', [ContactController::class, 'store'])->name('contact.store')->middleware('auth');
 Route::get('/contact-edit/{contact}', [ContactController::class, 'showEditContact'])->name('contact.edit')->middleware('auth');
@@ -58,7 +56,6 @@ Route::get('/product-edit/{product}', [ProductController::class, 'edit'])->name(
 Route::put('/product-edit/{product}', [ProductController::class, 'update'])->name('product.edit')->middleware('auth');
 Route::get('/product-delete/{product}', [ProductController::class, 'delete'])->name('product.delete')->middleware('auth');
 
-
 //Label
 Route::get('labels', [CommonController::class, 'label'])->name('label.index')->middleware('auth');
 Route::get('/label-create', [CommonController::class, 'create'])->name('label.create')->middleware('auth');
@@ -66,4 +63,3 @@ Route::post('/label-store', [CommonController::class, 'store'])->name('label.sto
 Route::get('/label-edit/{label}',[CommonController::class, 'edit'])->name('label.edit')->middleware('auth');
 Route::put('/label-update/{label}',[CommonController::class, 'update'])->name('label.update')->middleware('auth');
 Route::get('/label-delete/{label}',[CommonController::class, 'delete'])->name('label.delete')->middleware('auth');
-
