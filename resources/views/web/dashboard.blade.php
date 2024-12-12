@@ -1,4 +1,4 @@
-<x-layouts.app header="">
+<x-layouts.app header="Dashboard">
 
     <div class="overflow-hidden relative">
         <img src="{{ asset('images/bg-2.jpg') }}" alt=""

@@ -24,13 +24,13 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-//            'category_id' => 'required',
             'category_id' => 'required|exists:categories,id',
             'name' => 'required',
             'description' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'is_active' => 'sometimes',
         ]);
+
         if ($request->has('image')) {
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
@@ -38,16 +38,19 @@ class BlogController extends Controller
             $path = 'uploads/Blog/';
             $file->move($path, $fileName);
         }
+
         Blog::create([
             'category_id' => $request->category_id,
             'name' => $request->name,
             'description' => $request->description,
-            'image' => $path . $fileName,
+            'image' => isset($fileName) ? $path . $fileName : null, // Ensure this handles null if no image is uploaded
             'user_id' => auth()->id(),
             'is_active' => $request->is_active == true ? 1 : 0,
         ]);
+
         return redirect()->route('blog.index')->with('message', 'Blog created successfully.');
     }
+
 
     public function edit(int $id)
     {

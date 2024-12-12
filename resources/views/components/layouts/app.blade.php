@@ -11,8 +11,8 @@
 
 </head>
 <body>
-<x-nav.appnav :list="$header"/>
-<x-nav.sidebar>
+{{--<x-nav.appnav :list="$header"/>--}}
+<x-nav.sidebar :list="$header">
     <div class="bg-slate-50 min-h-screen">
 
 
