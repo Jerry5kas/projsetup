@@ -1,6 +1,7 @@
-<div class="fixed top-0 z-30 w-full bg-white px-16  p-5 text-center font-lex flex justify-between items-center sm:text-sm text-xs">
-        <div class="">{{$list}}</div>
-        <div class="sm:block hidden text-blue-600"><a href="{{ route('logout') }}">Logout</a></div>
+<div
+    class="fixed top-0 z-30 w-full bg-white px-16  p-5 text-center font-lex flex justify-between items-center sm:text-sm text-xs">
+    <div class="">{{$list}}</div>
+    <div class="sm:block hidden text-blue-600"><a href="{{ route('logout') }}">Logout</a></div>
 </div>
 <div x-cloak x-data="sidebar()" class="relative flex items-start ">
     <div class="fixed top-0 z-40 transition-all duration-300">
@@ -30,7 +31,6 @@
                 <div class="flex items-center justify-center px-8 py-3 pt-5 text-center">
                     <a href="#" class="text-lg leading-normal text-gray-200 focus:outline-none focus:ring">My App</a>
                 </div>
-
                 <nav>
                     <div class="flex-grow md:block md:overflow-y-auto overflow-x-hidden"
                          :class="{'opacity-1': sidebarOpen, 'opacity-0': !sidebarOpen}">
@@ -153,11 +153,8 @@
 
     </div>
 
-    {{--    <div :class="{'ml-56': sidebarOpen, 'ml-0' : !sidebarOpen }"--}}
-    {{--         class="flex-col w-full ml-56 transition-all duration-300 md:flex md:flex-col min-h-screen">--}}
     <div class="w-full pt-16">
         {{$slot}}
     </div>
-    {{--    </div>--}}
 
 </div>
