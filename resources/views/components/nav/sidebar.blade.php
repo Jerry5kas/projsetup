@@ -124,16 +124,7 @@
          class="flex-col w-full ml-56 transition-all duration-300 md:flex md:flex-col min-h-screen">
         <div class="">
             {{$slot}}
-{{--            <div class="flex items-end justify-end absolute bottom-0 right-0 mb-5 mr-5">--}}
-{{--                <div>--}}
-{{--                    <a title="Buy me a coffee" href="https://www.buymeacoffee.com/rHcLDkY" target="_blank"--}}
-{{--                       class="block w-14 h-14">--}}
-{{--                        <img alt="Buy me a coffee"--}}
-{{--                             class="object-cover object-center w-full h-full rounded-full shadow-md hover:shadow-lg"--}}
-{{--                             src="https://cdn.dribbble.com/users/3349322/screenshots/14039201/media/616e4ae6995fb288e434c3f0927541ce.png"/>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+
 
         </div>
     </div>
