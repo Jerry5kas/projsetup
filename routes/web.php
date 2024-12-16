@@ -23,9 +23,12 @@ Route::post('/registerUser', [UserController::class, 'registerUser'])->name('reg
 
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
-Route::get('test', [TestController::class, 'index'])->name('test')->middleware('auth');
+Route::get('test', [TestController::class, 'index'])->name('test.index')->middleware('auth');
 Route::get('/test-create', [TestController::class, 'create'])->name('test.create')->middleware('auth');
 Route::post('/test-store', [TestController::class, 'store'])->name('test.store')->middleware('auth');
+Route::get('/test-edit/{id}', [TestController::class, 'edit'])->name('test.edit')->middleware('auth');
+Route::post('/test-update/{id}', [TestController::class, 'update'])->name('test.update')->middleware('auth');
+Route::get('/test-delete/{id}', [TestController::class, 'destroy'])->name('test.delete')->middleware('auth');
 
 // Blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index')->middleware('auth');

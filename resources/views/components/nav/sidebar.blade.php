@@ -45,7 +45,6 @@
                             </svg>
                             <span class="mx-4">Dashboard</span>
                         </a>
-
                         <a class="flex items-center px-4 py-3 hover:bg-gray-800 focus:bg-gray-800 hover:text-gray-400 focus:outline-none focus:ring {{ request()->is('dashboard/orders*') ? 'bg-gray-800' : '' }}"
                            href="{{ route('blog.index') }}">
                             <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
@@ -55,7 +54,6 @@
                             </svg>
                             <span class="mx-4">Blog</span>
                         </a>
-
                         <a class="flex items-center px-4 py-3 hover:bg-gray-800 focus:bg-gray-800 hover:text-gray-400 focus:outline-none focus:ring"
                            href="{{ route('contact.index') }}">
                             <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
@@ -65,7 +63,6 @@
                             </svg>
                             <span class="mx-4">Contacts</span>
                         </a>
-
                         <a class="flex items-center px-4 py-3 hover:bg-gray-800 focus:bg-gray-800 hover:text-gray-400 focus:outline-none focus:ring"
                            href="{{ route('category.index') }}">
                             <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
@@ -75,7 +72,6 @@
                             </svg>
                             <span class="mx-4">Categories</span>
                         </a>
-
                         <a class="flex items-center px-4 py-3 hover:bg-gray-800 focus:bg-gray-800 hover:text-gray-400 focus:outline-none focus:ring"
                            href="{{ route('product.index') }}">
                             <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
@@ -85,7 +81,6 @@
                             </svg>
                             <span class="mx-4">Products</span>
                         </a>
-
                         <a class="flex items-center px-4 py-3 hover:bg-gray-800 focus:bg-gray-800 hover:text-gray-400 focus:outline-none focus:ring"
                            href="{{ route('label.index') }}">
                             <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"
@@ -97,7 +92,6 @@
                         </a>
                     </div>
                 </nav>
-
             </div>
             <div>
                 <a title="Logout" href="{{ route('logout') }}" class="block px-4 py-3">
