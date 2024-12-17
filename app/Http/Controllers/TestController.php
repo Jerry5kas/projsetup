@@ -12,17 +12,22 @@ class TestController extends Controller
 {
     public function index()
     {
-        $tests = Test::where(function ($query) {
-            $query->where([['is_active', '1'],['age', '>', 30]]);
-            $query->orderBy('name', 'asc');
-
-        })->get();
+        $tests = DB::table('tests')
+        ->select('id','name','body_1','f_name','date','opening_amount','balance','is_active')
+//        ->groupBy('l_name')
+        ->orderBy('name', 'desc')
+        ->get();
         $contacts = DB::table('contacts')
             ->orderBy('city', 'desc')
             ->get();
+        $categories = DB::table('categories')
+            ->select('id','name','is_active')
+            ->whereIn('name',['Uganda','Spain','Romania','Nepal'] )
+        ->where('is_active', 1)->get();
         return view('test.index')->with([
             'tests' => $tests,
-            'contacts' => $contacts
+            'contacts' => $contacts,
+            'categories' => $categories,
         ]);
     }
 
